@@ -1,0 +1,32 @@
+#homeLink {
+  cursor: pointer;
+}
+
+#homeLink:hover {
+  text-decoration: underline;
+}
+
+
+#entryLinkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: auto;
+
+  cursor: pointer;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 3px;
+}
+
+#entryLinkContainer:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+span:focus, mat-icon:focus {
+  outline: none;
+  border: 0;
+}

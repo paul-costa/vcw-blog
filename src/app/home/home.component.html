@@ -1,0 +1,26 @@
+  <div *ngIf="dataItems">
+    <div *ngFor="let dataItem of dataItems">
+      <mat-card>
+        <button type="button" mat-icon-button class="text-edit-btn" (click)="onDeleteEntry(dataItem)" disabled>
+          <mat-icon>delete</mat-icon>
+        </button>
+
+        <mat-card-header>
+          <mat-card-title>{{dataItem.title}}</mat-card-title>
+          <mat-card-subtitle>{{dataItem.category}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{dataItem.text}}</p>
+
+          <p style="color: rgb(150, 150, 150); text-align: right;">{{dataItem.date.toDate() | date}}</p>
+
+          <hr style="width: 60%; margin: 12px auto;">
+
+          <div class="link" (click)="onOpenLink(dataItem.link1)">{{dataItem.link1}}</div>
+          <div class="link" (click)="onOpenLink(dataItem.link2)">{{dataItem.link2}}</div>
+          <div class="link" (click)="onOpenLink(dataItem.link3)">{{dataItem.link3}}</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

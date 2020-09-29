@@ -1,0 +1,115 @@
+<div class="background">
+  <mat-card id="entry-card">
+    <form  [formGroup]="entryForm" (ngSubmit)="onSubmit()" id="entry-form">
+      <mat-grid-list cols="12" rowHeight="36px">
+        <mat-grid-tile [colspan]="12" [rowspan]="2">
+            <mat-form-field class="text-field">
+              <mat-label>Title</mat-label>
+              <input matInput formControlName="title" placeholder="Your 'interesting' title here" required>
+
+              <div *ngIf="entryFormControl.title.touched && entryFormControl.title.errors" class="errorMsg">
+                Title is required.
+              </div>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="5" [rowspan]="2">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput formControlName="date" [matDatepicker]="picker" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+
+            <div *ngIf="entryFormControl.date.touched && entryFormControl.date.errors" class="errorMsg">
+              Valid date is required.
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2" [rowspan]="2"></mat-grid-tile>
+
+
+        <mat-grid-tile [colspan]="5" [rowspan]="2">
+          <mat-form-field class="text-field">
+            <mat-label>Category</mat-label>
+            <input matInput formControlName="category" placeholder="Choose a category for sorting and stuff" required>
+
+            <div *ngIf="entryFormControl.category.touched && entryFormControl.category.errors" class="errorMsg">
+              Category is required.
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+
+        <mat-grid-tile [colspan]="8" [rowspan]="8">
+          <mat-form-field class="text-field">
+            <mat-label>Blog Post</mat-label>
+            <textarea cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="28" matInput formControlName="text" placeholder="Lorem ipsum..." required></textarea>
+
+            <div *ngIf="entryFormControl.text.touched && entryFormControl.text.errors" class="errorMsg">
+              A valid Text with at least {{textLength}} characters is required
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+
+
+        <mat-grid-tile [colspan]="1" [rowspan]="8">
+          <div class="textControlBtn">
+            <button type="button" mat-icon-button class="text-edit-btn" (click)="onEditBtn('bold')" disabled>
+              <mat-icon>format_bold</mat-icon>
+            </button>
+            <button type="button" mat-icon-button class="text-edit-btn" (click)="onEditBtn('italic')" disabled>
+              <mat-icon>format_italic</mat-icon>
+            </button>
+            <button type="button" mat-icon-button class="text-edit-btn" (click)="onEditBtn('strikethrough')" disabled>
+              <mat-icon>format_strikethrough</mat-icon>
+            </button>
+            <button type="button" mat-icon-button class="text-edit-btn" style="margin-top: 12px;" (click)="onEditBtn('bulleted')" disabled>
+              <mat-icon>format_list_bulleted</mat-icon>
+            </button>
+            <button type="button" mat-icon-button class="text-edit-btn" (click)="onEditBtn('numbered')" disabled>
+              <mat-icon>format_list_numbered</mat-icon>
+            </button>
+            <button type="button" mat-icon-button class="text-edit-btn" style="margin-top: 12px;" (click)="onEditBtn('highlight')" disabled>
+              <mat-icon>highlight</mat-icon>
+            </button>
+          </div>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile [colspan]="3" [rowspan]="8">
+          <div class="linkArea">
+            <mat-form-field class="text-field">
+              <mat-label>Link 1</mat-label>
+              <input matInput formControlName="link1">
+            </mat-form-field>
+
+            <mat-form-field class="text-field">
+              <mat-label>Link 2</mat-label>
+              <input matInput formControlName="link2">
+            </mat-form-field>
+
+            <mat-form-field class="text-field">
+              <mat-label>Link 3</mat-label>
+              <input matInput formControlName="link3">
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="12" [rowspan]="2">
+          <div style="margin: 0 auto;">
+            <button type="submit" mat-fab color="accent" style="margin:  0 12px;" matTooltip="submit to database" [disabled]="!entryForm.valid">  <!--  -->
+              <mat-icon style="border: 0">bookmark</mat-icon>
+            </button>
+            <button type="reset" mat-fab color="warn" style="margin: auto" style="margin:  0 12px;" id="resetBtn" matTooltip="clear form" [disabled]="!entryForm.touched">
+              <mat-icon style="border: 0">clear</mat-icon>
+            </button>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </mat-card>
+</div>

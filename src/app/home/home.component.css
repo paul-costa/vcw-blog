@@ -1,0 +1,31 @@
+mat-card {
+  width: 1024px;
+
+  margin: 24px auto;
+}
+
+mat-card-header {
+  margin-bottom: 12px;
+}
+
+mat-card-content {
+  padding: 0 48px;
+}
+
+.link {
+  cursor: pointer;
+  color: blue;
+
+  text-align: center;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: blueviolet;
+}
+
+button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
